@@ -15,13 +15,13 @@ task:
     configure_rclone_script:
       - cd /tmp && mkdir -p ~/.config/rclone
       - echo "$rclone_config" > ~/.config/rclone/rclone.conf
-    download_ccache_background_script:
-      - ./download_ccache
+#    download_ccache_background_script:
+ #     - ./download_ccache
     sync_script:
       - ./sync
     build_metalava_script:
       - ./metalava
     build_rom_script:
       - ./rom
-    upload_ccache_script:
-      - ./upload_ccache
+  #  upload_ccache_script:
+   #   - ./upload_ccache

@@ -1,13 +1,13 @@
 #!/bin/bash
 
-MANIFEST=git://github.com/crdroidandroid/android.git
-BRANCH=11.0
+MANIFEST=https://github.com/LineageOS/android.git
+BRANCH=lineage-18.1
 DEVICE=rolex
 BRAND=xiaomi
 PLATFORM=msm8917
-DT_LINK=https://github.com/adi153/device_xiaomi_rolex
-VT_LINK=https://github.com/adi153/vendor_xiaomi_rolex
-KT_LINK=https://github.com/Thagoo/platform_kernel_xiaomi_msm8917
+DT_LINK=https://github.com/Thagoo/android_device_xiaomi_rolex.git
+VT_LINK=https://github.com/Thagoo/android_vendor_xiaomi_rolex.git
+KT_LINK=https://github.com/Thagoo/platform_kernel_xiaomi_msm8917.git
 
 mkdir -p /tmp/rom
 cd /tmp/rom
@@ -21,6 +21,6 @@ git config --global user.email singhmanohar6699@gmail.com
 # Sync source with -q, no need unnecessary messages, you can remove -q if want! try with -j30 first, if fails, it will try again with -j8
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all) || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
 
-git clone $DT_LINK --depth=1 --single-branch -b cr-11.0 device/$BRAND/$DEVICE
-git clone $VT_LINK --depth=1 --single-branch -b cr-11.0 vendor/$BRAND/$DEVICE
+git clone $DT_LINK --depth=1 --single-branch -b 11 device/$BRAND/$DEVICE
+git clone $VT_LINK --depth=1 --single-branch -b r vendor/$BRAND/$DEVICE
 git clone $KT_LINK --depth=1 --single-branch -b lineage-18.1 kernel/$BRAND/$PLATFORM
