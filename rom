@@ -42,7 +42,7 @@ tg_send_file() {
 }
 
 make_rom(){
-	tg_post_msg "<b>CrDroid CI Build Triggered for Rolex/Riva</b>" "$CHATID"
+	tg_post_msg "<b>Cooking of CrDroid has been started in adi's kitchen for Rolex/Riva</b>" "$CHATID"
 	mka bacon -j16 | tee logs.log
 	if [ -f out/target/product/$DEVICE/*zip ]; then
 	    cd out/target/product/$DEVICE
